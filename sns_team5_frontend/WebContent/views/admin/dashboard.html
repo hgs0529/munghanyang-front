@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>관리자 페이지</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<link rel="stylesheet" href="../../resource/css/screen/dashboard.css" />
+<link rel="stylesheet" href="../../resource/css/adminstyle.css" />
+<script type="text/javascript">
+$(document).ready(() => {
+	$("#sidebar").load("sidebar.html");
+});
+</script>
+</head>
+<body>
+
+<nav id="sidebar"></nav>
+
+<main style="margin-left:78px">
+<div class="card-container container">
+	<div class="card-item">
+		<div class="item-body">
+			<div class="icon-content">
+				<div class="card-icon" id="usericon"><i class="fas fa-user-plus fa-lg"></i></div>
+			</div>
+			<div class="body-content">
+				<h5 class="content-title">이번주 신규 가입 회원</h5>
+				<h2 class="content-count" id="user"></h2>
+			</div>
+		</div>
+		<p class="count-updown" id="userUpDown">
+		</p>
+	</div>
+	
+	<div class="card-item">
+		<div class="item-body">
+			<div class="icon-content">
+				<div class="card-icon" id="ordericon"><i class="fas fa-receipt fa-lg"></i></div>
+			</div>
+			<div class="body-content">
+				<h5 class="content-title">이번주 주문 접수 현황</h5>
+				<h2 class="content-count" id="order"></h2>
+			</div>
+		</div>
+		<p class="count-updown" id="orderUpDown">
+		</p>
+	</div>
+	
+	<div class="card-item">
+		<div class="item-body">
+			<div class="icon-content">
+				<div class="card-icon" id="salesicon"><i class="fas fa-coins fa-lg"></i></div>
+			</div>
+			<div class="body-content">
+				<h5 class="content-title">이번주 수익 현황</h5>
+				<h2 class="content-count" id="sales"></h2>
+			</div>
+		</div>
+		<p class="count-updown" id="salesUpDown">
+		</p>
+	</div>
+</div>
+
+<div class="chart-container container">
+	<div class="chart-item saleschart">
+		<div class="chart-text">
+			<div class="chartdate" id="today"></div>
+			<h3 class="chart-title salestitle">일별 판매액 현황</h3>
+		</div>
+		<div class="chart-content"><canvas id="dailysales"></canvas></div>
+	</div>
+	<div class="chart-item orderchart">
+		<div class="chart-text">
+			<div class="chartdate" id="sevendays"></div>
+			<h3 class="chart-title ordertitle">카테고리별 주문량</h3>
+		</div>
+		<div class="chart-content"><canvas id="totalorder"></canvas></div>
+	</div>
+</div>
+</main>
+
+<script src="../../resource/js/screen/dashboard.js"></script>
+<script src="../../resource/js/screen/dashboard_chart.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+.dropdown-write-button {
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #fcce00;
+  position: fixed;
+  bottom: 80px;
+  right: 180px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.dropdown-write-button:hover {
+  color: #fcce00;
+  background-color: white;
+  border: 1px solid #fcce00;
+}
+
+.writeFeed i {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.write-dropdown {
+  padding: 10px;
+  display: none;
+  position: fixed;
+  bottom: 220px;
+  right: -50px;
+  transform: translateX(-50%);
+  width: 300px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 600;
+}
+
+.write-dropdown-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.write-dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.write-dropdown-item .write-dropdown-item_icon {
+  color: rgba(0, 0, 0, 0.6);
+  padding: 10px 0;
+  width: 25px;
+}
+
+.write-dropdown-item .write-dropdown-item_icon i {
+  font-size: 24px;
+  margin: auto;
+}
+
+.write-dropdown-item .write-dropdown-item_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+
+.write-dropdown-item .item_title {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.write-dropdown-item .item_content {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.moveTop {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  position: fixed;
+  bottom: 220px;
+  right: 205px;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 17px -1px rgba(0, 0, 0, 0.13);
+  box-shadow: 0px 0px 17px -1px rgba(0, 0, 0, 0.13);
+}
+
+.moveTop.show {
+  opacity: 1;
+  visibility: visible;
+}

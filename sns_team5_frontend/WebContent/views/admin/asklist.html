@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>munghanyang - join</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <meta
+      name="google-signin-client_id"
+      content="1326978654-9pboqujka1shkri0l6i9jehehsrvl4c8.apps.googleusercontent.com"
+    />
+    <script
+      src="https://apis.google.com/js/platform.js?onload=init"
+      async
+      defer
+    ></script>
+
+    <link rel="stylesheet" href="../../resource/css/style.css" />
+    <script src="../../resource/js/component/refreshUserInfo.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="content-container">
+      <main>
+        <div class="asklist-main-container">
+          <div class="asklist-table">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">질문번호</th>
+                  <th scope="col">상품명</th>
+                  <th scope="col">질문내용</th>
+                  <th scope="col">작성자</th>
+                  <th scope="col">작성일자</th>
+                  <th scope="col">답변작성</th>
+                </tr>
+              </thead>
+              <tbody id="ask-list">
+                <!-- <tr class="table-active">
+                  <th scope="row">Active</th>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>
+                <tr>
+                  <th scope="row">Default</th>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>
+                <tr class="table-primary">
+                  <th scope="row">Primary</th>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>
+                <tr class="table-secondary">
+                  <th scope="row">Secondary</th>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>
+                <tr class="table-success">
+                  <th scope="row">Success</th>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>
+                <tr class="table-danger">
+                  <th scope="row">Danger</th>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>
+                <tr class="table-warning">
+                  <th scope="row">Warning</th>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>
+                <tr class="table-info">
+                  <th scope="row">Info</th>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row">Light</th>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>
+                <tr class="table-dark">
+                  <th scope="row">Dark</th>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="paging-container">
+            <ul id="pagingul"></ul>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="text/javascript">
+      let totalData; // 전체 자료 수
+      let dataPerPage; // 페이지당 보여줄 자료 수
+      let pageCount = 10; // 페이징에 한번에 보여줄 페이지 수
+      let globalCurrentPage = 1; // 전역변수로 쓰일 현재 페이지
+      let nextPage;
+      let prevPage;
+
+      $(document).ready(function () {
+        $("#sidebar").load("sidebar.html");
+        dataPerPage = 15;
+
+        $.ajax({
+          url: "http://localhost:3000/admin/product/ask/count",
+          type: "get",
+          data: {
+            choice: $("#choice").val(),
+            search: $("#search").val(),
+            currentPage: 1,
+            dataPerPage: dataPerPage,
+            startDate: $("#startDate").val(),
+            endDate: $("#endDate").val(),
+          },
+          xhrFields: { withCredentials: true },
+          crossDomain: true,
+          success: function (count) {
+            console.log(count);
+            totalData = count;
+            displayData(1, dataPerPage);
+            paging(totalData, dataPerPage, pageCount, 1);
+          },
+        });
+      });
+
+      function displayData(currentPage, dataPerPage) {
+        currentPage = Number(currentPage);
+        dataPerPage = Number(dataPerPage);
+
+        $.ajax({
+          url: "http://localhost:3000/admin/product/ask",
+          type: "get",
+          data: {
+            choice: $("#choice").val(),
+            search: $("#search").val(),
+            currentPage: currentPage,
+            answerStatus: 2,
+            dataPerPage: dataPerPage,
+            startDate: $("#startDate").val(),
+            endDate: $("#endDate").val(),
+          },
+          xhrFields: { withCredentials: true },
+          crossDomain: true,
+          success: function (list) {
+            console.log(list);
+            $("#ask-list").html("");
+            $.each(list, function (i, item) {
+              let str = "<tr>";
+              str += "<td class='center'>" + item.seq + "</td>";
+              str += "<td>" + item.pname + "</td>";
+              str += "<td>" + item.content + "</td>";
+              str += "<td>" + item.askname + "</td>";
+              str += "<td>" + item.wdate + "</td>";
+
+              if (item.answered == 0) {
+                str += `<td><button type='button' class='addAnswer' onclick='location.href="../admin/askanswer.html?seq=${item.seq}"'>답변작성</button></td>`;
+              } else {
+                str += `<td><button type='button' class='ModifyAnswer' onclick='location.href="../admin/askanswer.html?seq=${item.seq}"'>답변수정</button></td>`;
+              }
+              str += "</tr>";
+              $("#ask-list").append(str);
+            });
+          },
+        });
+      }
+
+      function paging(totalData, dataPerPage, pageCount, currentPage) {
+        let totalPage = Math.ceil(totalData / dataPerPage);
+        console.log("totalPage: " + totalPage);
+        if (totalPage < pageCount) {
+          pageCount = totalPage; // 한번에 보여줄 페이지보다 전체 페이지가 작은 경우: totalPage를 페이지 수로 정함
+        }
+
+        let pageGroup = Math.ceil(currentPage / pageCount); // 지금 페이지가 몇번째 그룹에 있는지 (1~10, 11~20, 21~30, ...)
+        let lastPage = pageGroup * pageCount; // 화면에 보일 마지막 페이지 수
+
+        if (lastPage > totalPage) {
+          lastPage = totalPage;
+        }
+
+        let firstPage = lastPage - (pageCount - 1); // 화면에 보일 첫번째 페이지 번호 (1, 11, 21, ...)
+        nextPage = lastPage + 1;
+        prevPage = firstPage - 1;
+
+        $("#pagingul").html("");
+        let str = "";
+
+        if (prevPage > 0) {
+          str += "<li><a href='#' id='prevPage'> 이전 </a></li>";
+        }
+
+        for (var i = firstPage; i <= lastPage; i++) {
+          if (currentPage == i) {
+            str += "<li><a href='#' id='" + i + "'>" + i + "</a></li>";
+          } else {
+            str += "<li><a href='#' id='" + i + "'>" + i + "</a></li>";
+          }
+        }
+
+        if (lastPage < totalPage) {
+          str += "<li><a href='#' id='nextPage'> 다음 </a></li>";
+        }
+
+        $("#pagingul").html(str);
+
+        let displayCount = "";
+        displayCount = "전체 " + totalPage + " 페이지 - " + totalData + "건";
+        $("#displayCount").text(displayCount);
+      }
+
+      $("#pagingul li a").click(function () {
+        let page = $(this).attr("id");
+        console.log("load page: " + page);
+
+        let selectedPage = $(this).text();
+        if (page == "nextPage") selectedPage = nextPage;
+        if (page == "prevPage") selectedPage = prevPage;
+
+        globalCurrentPage = seletedPage;
+
+        paging(totalData, dataPerPage, pageCount, selectedPage);
+        displayData(selectedPage, dataPerPage);
+      });
+
+      $("#searchBtn").click(function () {
+        console.log("search start");
+
+        displayData(1, dataPerPage);
+        paging(totalData, dataPerPage, pageCount, 1);
+      });
+
+      $("#dataPerPage").change(function () {
+        console.log("change dataPerPage");
+
+        dataPerPage = $("#dataPerPage").val();
+        displayData(globalCurrentPage, dataPerPage);
+        paging(totalData, dataPerPage, pageCount, globalCurrentPage);
+      });
+
+      $("#answerStatus").change(function () {
+        console.log("답변보기 변경");
+        dataPerPage = $("#dataPerPage").val();
+        displayData(globalCurrentPage, dataPerPage);
+        paging(totalData, dataPerPage, pageCount, globalCurrentPage);
+      });
+    </script>
+    <script src="../../resource/js/component/addTags.js"></script>
+    <script src="../../resource/js/component/addComponent.js"></script>
+  </body>
+</html>

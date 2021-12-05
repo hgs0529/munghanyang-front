@@ -1,0 +1,148 @@
+.header-container {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 25%;
+}
+
+.header-nav img {
+  width: 90px;
+  height: 90px;
+}
+
+.header-nav a {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+.header-nav a:hover {
+  color: #fcce00;
+}
+
+.selected {
+  color: #fcce00;
+}
+
+.deselected {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.header_search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  position: relative;
+}
+
+.header_search img {
+  position: absolute;
+  top: 5px;
+  left: 178px;
+  width: 30px;
+  height: 30px;
+}
+
+.header_search input {
+  padding: 5px;
+  padding-left: 50px;
+  width: 270px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 15px;
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.header_menu {
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* 로그인 안했을때 */
+.header_menu a {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.header_menu span {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  margin: 0px 10px;
+}
+
+/* 로그인했을때 */
+.header_icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.header_menu .dropdown-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header_menu .dropdown-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: white;
+}
+
+.header_menu .dropdown-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.header_menu .dropdown-icon {
+  font-size: 20px;
+  margin-left: 3px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.header_menu .dropdown {
+  display: none;
+  position: absolute;
+  top: 138%;
+  left: 5%;
+  transform: translateX(-50%);
+  width: 150px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 11;
+}
+
+.header_menu .dropdown-item {
+  text-align: center;
+  padding: 18px;
+  cursor: pointer;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.header_menu .dropdown-item:hover {
+  background: #fcce00;
+  color: white;
+}

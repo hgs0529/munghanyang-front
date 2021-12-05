@@ -1,0 +1,156 @@
+.photo-block-item {
+  margin: 0 10px;
+  height: 530px;
+  width: 280px;
+}
+
+.photo-block-item .image-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 280px;
+  height: 300px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.photo-block-item .image-wrap i {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 4;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.photo-block-item .image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+.photo-block-item .image-wrap img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.photo-content-wrap {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.photo-content-wrap div {
+  margin-top: 10px;
+}
+
+.photo-content-wrap_title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.photo-header-wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px 0;
+}
+
+.photo-profile-wrap {
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.photo-profile-wrap img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.photo-name-wrap {
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photo-name-wrap div:first-child {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.photo-content-wrap_icons {
+  width: 280px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.photo-content-wrap_icons span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  width: 60px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.photo-content-wrap_icons span i {
+  font-size: 22px;
+  margin-right: 5px;
+}
+
+.photo-content-wrap_icons span .fa-heart {
+  cursor: pointer;
+}
+
+.photo-content-wrap_icons span .fas.fa-heart {
+  color: red;
+}
+
+.photo-content-wrap_content {
+  width: 280px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 10px;
+}
+
+.photo-content-wrap_comment {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 60px;
+}
+
+.photo-content-wrap_comment div:first-child {
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.followBtn.follow {
+  font-size: 14px;
+  color: #1f3e84;
+  font-weight: bold;
+}
+
+.followBtn.following {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+}

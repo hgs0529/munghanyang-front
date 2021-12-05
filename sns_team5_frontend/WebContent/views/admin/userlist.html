@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원 목록</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../resource/css/adminstyle.css" />
+  </head>
+  <body>
+    <div id="sidebar"></div>
+
+    <main style="margin-left: 78px">
+      <div class="header-container">
+        <div class="datepicker" id="datepicker">
+          <label for="startDate">시작일</label>
+          <input type="date" id="startDate" data-input />
+          <span> ~ </span>
+          <label for="endDate">종료일</label>
+          <input type="date" id="endDate" data-input />
+        </div>
+        <div class="search-container">
+          <select id="choice" name="choice">
+            <option value="" selected>선택</option>
+            <option value="email">이메일</option>
+            <option value="nickname">유저네임</option>
+          </select>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="검색어 입력"
+          />
+          <input type="button" id="searchBtn" value="검색" />
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div class="list-text">
+          <label for="dataPerPage">목록보기</label>
+          <select id="dataPerPage">
+            <option value="10" selected>10개씩보기</option>
+            <option value="15">15개씩보기</option>
+            <option value="20">20개씩보기</option>
+          </select>
+
+          <input type="checkbox" id="sns_only" name="sns_only" />
+          <label for="sns_only" id="sns-label">SNS 계정만 보기</label>
+
+          <p id="displayCount"></p>
+        </div>
+
+        <div class="list-table">
+          <table>
+            <thead>
+              <tr>
+                <th>회원번호</th>
+                <th>이메일</th>
+                <th>유저네임</th>
+                <th>가입일</th>
+                <th>보유 포인트</th>
+                <th>SNS 가입 여부</th>
+              </tr>
+            </thead>
+            <tbody id="user-list"></tbody>
+          </table>
+        </div>
+
+        <div class="paging-container">
+          <ul id="pagingul"></ul>
+        </div>
+      </div>
+    </main>
+
+    <script type="text/javascript">
+      let totalData; // 전체 자료 수
+      let dataPerPage; // 페이지당 보여줄 자료 수
+      let pageCount = 10; // 페이징에 한번에 보여줄 페이지 수
+      let globalCurrentPage = 1; // 전역변수로 쓰일 현재 페이지
+
+      $(document).ready(function () {
+        $("#sidebar").load("sidebar.html");
+        dataPerPage = $("#dataPerPage").val();
+
+        $.ajax({
+          url: "http://localhost:3000/admin/users/count",
+          type: "get",
+          data: {
+            choice: $("#choice").val(),
+            search: $("#search").val(),
+            currentPage: 1,
+            dataPerPage: dataPerPage,
+            sns_only: $("#sns_only").is(":checked"),
+            startDate: $("#startDate").val(),
+            endDate: $("#endDate").val(),
+          },
+          success: function (count) {
+            console.log(count);
+            totalData = count;
+            displayData(1, dataPerPage);
+            paging(totalData, dataPerPage, pageCount, 1);
+          },
+        });
+      });
+
+      function displayData(currentPage, dataPerPage) {
+        currentPage = Number(currentPage);
+        dataPerPage = Number(dataPerPage);
+
+        $.ajax({
+          url: "http://localhost:3000/admin/users",
+          type: "get",
+          data: {
+            choice: $("#choice").val(),
+            search: $("#search").val(),
+            currentPage: currentPage,
+            dataPerPage: dataPerPage,
+            sns_only: $("#sns_only").is(":checked"),
+            startDate: $("#startDate").val(),
+            endDate: $("#endDate").val(),
+          },
+          xhrFields: { withCredentials: true },
+          crossDomain: true,
+          success: function (list) {
+            $("#user-list").html("");
+            $.each(list, function (i, item) {
+              let str = "<tr>";
+              str += "<td>" + item.seq + "</td>";
+              str += "<td>" + item.email + "</td>";
+              str += "<td>" + item.nickname + "</td>";
+              str += "<td>" + item.cdate + "</td>";
+              str += "<td>" + item.mungpoint + "P</td>";
+              if (item.sns_only) {
+                str += "<td> O </td>";
+              } else {
+                str += "<td> - </td>";
+              }
+              str += "</tr>";
+
+              $("#user-list").append(str);
+            });
+          },
+        });
+      }
+
+      function paging(totalData, dataPerPage, pageCount, currentPage) {
+        let totalPage = Math.ceil(totalData / dataPerPage);
+        console.log("totalPage: " + totalPage);
+        if (totalPage < pageCount) {
+          pageCount = totalPage; // 한번에 보여줄 페이지보다 전체 페이지가 작은 경우: totalPage를 페이지 수로 정함
+        }
+
+        let pageGroup = Math.ceil(currentPage / pageCount); // 지금 페이지가 몇번째 그룹에 있는지 (1~10, 11~20, 21~30, ...)
+        let lastPage = pageGroup * pageCount; // 화면에 보일 마지막 페이지 수
+
+        if (lastPage > totalPage) {
+          lastPage = totalPage;
+        }
+
+        let firstPage = lastPage - (pageCount - 1); // 화면에 보일 첫번째 페이지 번호 (1, 11, 21, ...)
+        let nextPage = lastPage + 1;
+        let prevPage = firstPage - 1;
+
+        $("#pagingul").html("");
+        let str = "";
+
+        if (prevPage > 0) {
+          str += "<li><a href='#' id='prevPage'> 이전 </a></li>";
+        }
+
+        for (var i = firstPage; i <= lastPage; i++) {
+          if (currentPage == i) {
+            str += "<li><a href='#' id='" + i + "'>" + i + "</a></li>";
+          } else {
+            str += "<li><a href='#' id='" + i + "'>" + i + "</a></li>";
+          }
+        }
+
+        if (lastPage < totalPage) {
+          str += "<li><a href='#' id='nextPage'> 다음 </a></li>";
+        }
+
+        $("#pagingul").html(str);
+
+        let displayCount = "";
+        displayCount = "전체 " + totalPage + " 페이지 - " + totalData + "건";
+        $("#displayCount").text(displayCount);
+      }
+
+      $("#pagingul li a").click(function () {
+        let page = $(this).attr("id");
+        console.log("load page: " + page);
+
+        let selectedPage = $(this).text();
+        if (page == "nextPage") selectedPage = nextPage;
+        if (page == "prevPage") selectedPage = prevPage;
+
+        globalCurrentPage = seletedPage;
+
+        paging(totalData, dataPerPage, pageCount, selectedPage);
+        displayData(selectedPage, dataPerPage);
+      });
+
+      $("#searchBtn").click(function () {
+        console.log("search start");
+
+        dataPerPage = $("#dataPerPage").val();
+
+        $.ajax({
+          url: "http://localhost:3000/admin/users/count",
+          type: "get",
+          data: {
+            choice: $("#choice").val(),
+            search: $("#search").val(),
+            currentPage: 1,
+            dataPerPage: dataPerPage,
+            sns_only: $("#sns_only").is(":checked"),
+            startDate: $("#startDate").val(),
+            endDate: $("#endDate").val(),
+          },
+          xhrFields: { withCredentials: true },
+          crossDomain: true,
+          success: function (count) {
+            console.log(count);
+            totalData = count;
+            displayData(1, dataPerPage);
+            paging(totalData, dataPerPage, pageCount, 1);
+          },
+          error: function () {
+            console.log("error");
+          },
+        });
+      });
+
+      $("#dataPerPage").change(function () {
+        console.log("change dataPerPage");
+
+        dataPerPage = $("#dataPerPage").val();
+        displayData(globalCurrentPage, dataPerPage);
+        paging(totalData, dataPerPage, pageCount, globalCurrentPage);
+      });
+    </script>
+  </body>
+  <link rel="stylesheet" href="../../resource/css/adminstyle.css" />
+</html>

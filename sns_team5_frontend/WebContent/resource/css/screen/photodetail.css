@@ -1,0 +1,232 @@
+.photo-detail-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 1150px;
+}
+
+.photo-detail-content_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#photo-detail-slider {
+  margin-top: 20px;
+  margin-right: 20px;
+  color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 750px;
+  height: 750px;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+#photo-detail-slider i {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+#photo-detail-slider ul {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 750px;
+  width: 2250px;
+}
+
+#photo-detail-slider ul li {
+  position: relative;
+  width: 750px;
+  height: 750px;
+}
+
+#photo-detail-slider ul li img {
+  width: 750px;
+  height: 750px;
+  object-fit: cover;
+}
+
+#photo-detail-slider a.control_prev,
+#photo-detail-slider a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: #2a2a2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#photo-detail-slider a.control_prev:hover,
+#photo-detail-slider a.control_next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+}
+
+#photo-detail-slider a.control_prev {
+  left: 0;
+  border-radius: 0 2px 2px 0;
+}
+
+#photo-detail-slider a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.photo-detail-content_side {
+  height: 100%;
+  width: 100%;
+  margin-top: 20px;
+  padding: 0 30px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.photo-detail-content_side-likeBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.photo-detail-content_side-likeBtn div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.photo-detail-content_side-likeBtn .side-likeBtn-like {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.photo-detail-content_side-likeBtn .side-likeBtn-like i {
+  margin-right: 5px;
+}
+
+.photo-detail-content_side-likeBtn .side-likeBtn-like i.fas {
+  color: red;
+}
+
+.photo-detail-content_side-likeBtn .side-likeBtn-follow {
+  background-color: #1f3e84;
+  color: white;
+}
+
+.photo-detail-content_side-likeBtn .side-likeBtn-delete {
+  background-color: red;
+  color: white;
+}
+
+.photo-detail-content_side-likeBtn .side-likeBtn-delete:hover {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+}
+
+.photo-detail-content_side-likeBtn .side-likeBtn-follow.following {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.photo-detail-content_side-profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.side-profile-imgwrap {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.side-profile-imgwrap img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.side-profile-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.photo-detail-content_side-othorPhoto-title {
+  text-align: right;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+}
+
+.photo-detail-content_side-othorPhoto-title span {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+  margin-right: 5px;
+}
+
+.photo-detail-content_side-othorPhoto {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 309px;
+}
+
+.photo-detail-content_side-othorPhoto div:not(:last-child) {
+  width: 150px;
+  height: 150px;
+  margin: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.photo-detail-content_side-othorPhoto div img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.goUserDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  right: 2px;
+  width: 80px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  z-index: 4;
+  cursor: pointer;
+}

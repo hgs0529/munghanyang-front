@@ -1,0 +1,128 @@
+/* config */
+@import url("config/reset.css");
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
+
+/* component */
+@import url("component/colorBox.css");
+@import url("component/header.css");
+@import url("component/footer.css");
+@import url("component/navbar.css");
+@import url("component/chat.css");
+@import url("component/sns-login.css");
+@import url("component/writeFeed.css");
+@import url("component/orderDropdown.css");
+@import url("component/comment.css");
+@import url("component/user-card.css");
+
+/* screen */
+@import url("screen/snsMain.css");
+@import url("screen/storeMain.css");
+@import url("screen/join.css");
+@import url("screen/login.css");
+@import url("screen/knowhow.css");
+@import url("screen/write-knowhow.css");
+@import url("screen/write-photo.css");
+@import url("screen/review.css");
+@import url("screen/bbs.css");
+@import url("screen/photo.css");
+@import url("screen/bbsdetail.css");
+@import url("screen/photodetail.css");
+@import url("screen/userdetail.css");
+@import url("screen/editprofile.css");
+@import url("screen/shop.css");
+@import url("screen/addproduct.css");
+@import url("screen/cart.css");
+@import url("screen/productdetail.css");
+@import url("screen/order.css");
+@import url("screen/asklist.css");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  width: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.content-container,
+.footer-container,
+.header-container,
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 200;
+}
+
+.content-container {
+  margin-bottom: 120px;
+}
+
+select:focus,
+input:focus {
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.carousel {
+  width: 2000px;
+  height: 600px;
+  z-index: 1;
+}
+
+.carousel.store {
+  width: 2000px;
+  height: 600px;
+  z-index: 1;
+}
+
+.carousel-item {
+  width: 100%;
+  height: 600px;
+}
+
+.carousel-item.store {
+  width: 100%;
+  height: 600px;
+}
+
+.carousel-item img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-item img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+select {
+  appearance: none;
+}

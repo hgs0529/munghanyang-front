@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+/* config */
+@import url("../config/reset.css");
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+h2 {
+	font-size:25px;
+	font-weight:900;
+}
+
+h3 {
+	font-size:20px;
+	font-weight:700;
+}
+
+.container {
+	margin:1rem;
+	padding:1.5rem 0;
+	
+	display:flex;
+	flex-flow: row nowrap;
+	justify-content:center;
+	align-content:center;
+}
+
+.chart-container {
+	height: auto;
+}
+
+.card-item, .chart-item {
+	width: 20vw;
+	
+	flex:1 1 auto;
+	
+	border-radius:20px;
+	
+	background-color: white;
+}
+
+.card-item {
+	margin:2.5rem 2rem 0.5rem 2rem;
+	padding:1.5rem 2.5rem;
+	
+	border:solid 2px #eaeaea;
+}
+
+.chart-item {
+	padding:1rem;
+	height:40%;
+}
+
+.item-body {
+	display:flex;
+	align-items:center;
+	align-content:center;
+}
+
+.icon-content {
+	width: auto;
+    max-width: 100%;
+    flex: 0 0 auto;
+}
+
+.card-icon, .body-content {
+	display:inline-flex;
+	flex-direction:column;
+}
+
+.card-icon {
+	padding:12px;
+	width:3em;
+    height:3em;
+	
+	align-items:center;
+    justify-content:center;
+    box-sizing:border-box;
+	
+	border-radius:50%;
+	
+	color:#fff;
+	background-color:#fcce00;
+}
+
+.body-content {
+	margin-left:1.5rem;
+}
+
+.content-title {
+	color:#8898aa;
+}
+
+.content-count {
+	margin-top: 0.5rem;
+}
+
+.count-updown {
+	margin-top:1rem;
+}
+
+.updown-up {
+	color: #2dce89 !important;
+	font-size:13px;
+	font-weight:700;
+}
+
+.updown-down {
+	color: #f5365c !important;
+	font-size:13px;
+	font-weight:700;
+}
+
+.updown-same {
+	color: #11cdef !important;
+	font-size:13px;
+	font-weight:700;
+}
+
+.updown-text {
+	margin-left:0.5rem;
+	
+	color: #8898aa !important;
+	font-size:13px;
+	font-weight:300;
+}
+
+
+.chart-text {
+	margin:1rem 0;
+	padding:0 0 1rem 0.5rem;
+	
+	color:#fff;
+}
+
+.chartdate {
+	margin-bottom:0.5rem;
+	padding:3px;
+	width:auto;
+	
+	display:inline-block;
+	border:solid 1px;
+	
+	font-size:13px;
+	font-weight:400;
+}
+
+.chartdate #today {
+	border-color:#fff;
+	color:#fff;
+}
+
+.chartdate #sevendays {
+	border-color:#1f3e84;
+	color:#1f3e84;
+}
+
+.saleschart {
+	background-color: #1f3e84 !important;
+	align-items: center;
+}
+
+#dailysales {
+	position: relative;
+	height:auto;
+	width:70%;
+}

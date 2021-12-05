@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>munghanyang - cart</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../resource/css/style.css" />
+    <script src="../../resource/js/component/refreshUserInfo.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="content-container">
+      <div class="cart-content-container">
+        <div class="cart-content">
+          <div class="cart-content-header">
+            <div class="cart-content-header-left">
+              <input class="cart-all-check" type="checkbox" checked /><span
+                >모두선택</span
+              >
+            </div>
+            <div class="cart-content-header-right">선택삭제</div>
+          </div>
+          <div class="cart-content-list"></div>
+        </div>
+        <div class="cart-sidebar">
+          <div class="cart-sidebar-main">
+            <div class="cart-sidebar-main_title">선택상품</div>
+            <div class="cart-sidebar-main_all">
+              <div>총 상품금액</div>
+              <div>
+                <div class="main_all-price"></div>
+                <span>원</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-main_del">
+              <div>총 배송비</div>
+              <div>
+                <div class="main_all-delivery">(+) 3,000</div>
+                <span>원</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-main_dis">
+              <div>총 할인</div>
+              <div>
+                <div class="main_all-discount"></div>
+                <span>원</span>
+              </div>
+            </div>
+            <div class="cart-sidebar-main_sum">
+              <div class="cart-sidebar-main_sum_title">총 결제금액</div>
+              <div class="cart-sidebar-main_sum_main">
+                <div class="main_all-sumPrice"></div>
+                <span>원</span>
+              </div>
+            </div>
+          </div>
+          <div class="cart-sidebar-btn">주문하기</div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"
+      integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../../resource/js/component/chat.js"
+    ></script>
+    <script src="../../resource/js/component/addTags.js"></script>
+    <script src="../../resource/js/component/addComponent.js"></script>
+    <script src="../../resource/js/screen/cart.js"></script>
+    <script src="../../resource/js/component/moveTop.js"></script>
+  </body>
+</html>

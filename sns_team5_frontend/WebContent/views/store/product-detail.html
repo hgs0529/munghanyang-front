@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>munghanyang - main</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../resource/css/style.css" />
+    <script src="../../resource/js/component/refreshUserInfo.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <select name="" id="">
+      <option value=""></option>
+    </select>
+    <div class="content-container">
+      <div class="product-overview">
+        <div class="product-linemap"></div>
+        <div class="product-overview-main">
+          <div class="product-overview-main-imagewrap"></div>
+          <div class="product-overview-main-info">
+            <div class="overview-main-info_title"></div>
+            <div class="overview-main-info_stars"></div>
+            <div class="overview-main-info_price"></div>
+            <div class="product-bay">
+              <div class="overview-main-info_options"></div>
+              <div class="overview-main-info_quantity">
+                <div class="overview-main-info_quantity-left">수량</div>
+                <div class="overview-main-info_quantity-right"></div>
+              </div>
+              <div class="overview-main-info_sum">
+                <div class="overview-main-info_sum-left">총 상품금액</div>
+                <div class="overview-main-info_sum-right"></div>
+              </div>
+              <div class="overview-main-info_btns">
+                <div class="overview-main-info_cart">장바구니</div>
+                <div class="overview-main-info_bay">바로구매</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-main">
+        <div class="product-main-tabs">
+          <div class="product-main-tabs_tabs">
+            <div class="product-detail active">상세설명</div>
+            <div class="product-review">상품후기</div>
+            <div class="product-qna">상품문의</div>
+            <div class="product-other">교환/반품/배송</div>
+          </div>
+        </div>
+        <div class="product-main-content">
+          <div class="product-main-content_main"></div>
+          <div class="product-main-content_review">
+            <div class="product-main-content_review-header">
+              <div class="product-main-content_review-header_left">
+                <span>리뷰</span>
+                <span class="product-main-content_review-header_reviewcount"
+                  >0</span
+                >
+              </div>
+              <div class="product-main-content_review-header_right">
+                <span class="content_review-btn" id="show-review"
+                  >리뷰쓰기</span
+                >
+                <div class="review-background">
+                  <div class="window">
+                    <div class="popup review">
+                      <div class="popup-container">
+                        <div class="review-modal-title">리뷰쓰기</div>
+                        <div class="review-modal-product">
+                          <div class="review-modal-product_main">
+                            <div class="modal-product_main-product">
+                              <div
+                                class="modal-product_main-product_imgwrap"
+                              ></div>
+                              <div
+                                class="modal-product_main-product_title"
+                              ></div>
+                            </div>
+                            <div class="modal-product_main-star">
+                              <i class="far fa-star" data-val="1"></i>
+                              <i class="far fa-star" data-val="2"></i>
+                              <i class="far fa-star" data-val="3"></i>
+                              <i class="far fa-star" data-val="4"></i>
+                              <i class="far fa-star" data-val="5"></i>
+                            </div>
+                          </div>
+                          <div class="modal-product_main-inputs">
+                            <div>
+                              <textarea
+                                name=""
+                                id="modal-product_main-textarea"
+                                cols="30"
+                                rows="10"
+                                placeholder="리뷰를 남겨주시면 100포인트를 드립니다."
+                              ></textarea>
+                            </div>
+                            <div>
+                              <form id="upload-form">
+                                <input
+                                  type="file"
+                                  id="thumbnail-input"
+                                  name="uploadFile"
+                                  accept="image/*"
+                                />
+                              </form>
+                              <div id="thumbnail-photo" class="modal-product">
+                                <i class="far fa-image"></i>
+                                미리보기
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-product_main-btns">
+                            <div class="modal-product_main-cancel">취소</div>
+                            <div class="modal-product_main-write">등록</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="review-stars">
+              <div class="review-stars_badge">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="avg-score">0</span>
+              </div>
+              <div class="review-stars_avg">
+                <div class="review-stars_avg-item">
+                  <div>5점</div>
+                  <div class="progress">
+                    <div
+                      id="5-score_progress"
+                      class="progress-bar bg-warning"
+                      role="progressbar"
+                      style="width: 0"
+                      aria-valuenow="75"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div id="5-score_count">0</div>
+                </div>
+                <div class="review-stars_avg-item">
+                  <div>4점</div>
+                  <div class="progress">
+                    <div
+                      id="4-score_progress"
+                      class="progress-bar bg-warning"
+                      role="progressbar"
+                      style="width: 0"
+                      aria-valuenow="75"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div id="4-score_count">0</div>
+                </div>
+                <div class="review-stars_avg-item">
+                  <div>3점</div>
+                  <div class="progress">
+                    <div
+                      id="3-score_progress"
+                      class="progress-bar bg-warning"
+                      role="progressbar"
+                      style="width: 0"
+                      aria-valuenow="75"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div id="3-score_count">0</div>
+                </div>
+                <div class="review-stars_avg-item">
+                  <div>2점</div>
+                  <div class="progress">
+                    <div
+                      id="2-score_progress"
+                      class="progress-bar bg-warning"
+                      role="progressbar"
+                      style="width: 0"
+                      aria-valuenow="75"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div id="2-score_count">0</div>
+                </div>
+                <div class="review-stars_avg-item">
+                  <div>1점</div>
+                  <div class="progress">
+                    <div
+                      id="1-score_progress"
+                      class="progress-bar bg-warning"
+                      role="progressbar"
+                      style="width: 0"
+                      aria-valuenow="75"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div id="1-score_count">0</div>
+                </div>
+              </div>
+            </div>
+            <div class="review-stars_review-wrap"></div>
+          </div>
+          <div class="product-main-content_qna">
+            <div class="product-main-content_qna-header">
+              <div class="product-main-content_qna-header_left">
+                <span>문의</span>
+                <span class="product-main-content_qna-header_qnacount">0</span>
+              </div>
+              <div class="product-main-content_qna-header_right">
+                <span class="product-main-content_qna" id="show">문의하기</span>
+                <div class="background">
+                  <div class="window">
+                    <div class="popup qna">
+                      <div class="popup-container">
+                        <div class="qna-modal-title">문의하기</div>
+                        <div class="qna-modal-product">
+                          <div class="qna-modal-product_main">
+                            <label for="price-input" class="product-qna-label"
+                              >문의유형</label
+                            >
+                            <div class="product-qna-typeBtns">
+                              <div class="active">상품</div>
+                              <div>배송</div>
+                              <div>반품</div>
+                              <div>교환</div>
+                              <div>환불</div>
+                              <div>기타</div>
+                            </div>
+                            <label for="price-input" class="product-qna-label"
+                              >내용</label
+                            >
+                            <textarea
+                              name=""
+                              class="product-qna-textarea"
+                              cols="30"
+                              rows="10"
+                              placeholder="내용을 입력해주세요"
+                            ></textarea>
+                          </div>
+                          <div class="modal-product_main-btns">
+                            <div class="modal-product_qna-cancel">취소</div>
+                            <div class="modal-product_qna-write">등록</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product-main-content_qna-main"></div>
+          </div>
+          <div class="product-main-content_delivery">
+            <div class="content_delivery-title">교환/반품/배송</div>
+            <div class="content_delivery-subtitle">배송정보</div>
+            <ul>
+              <li>
+                <span>-</span>배송은 결제일로부터 3일이내 발송됩니다. (단, 주말
+                및 공휴일은 배송일에서 제외됩니다.)
+              </li>
+              <li>
+                <span>-</span>주문제작의 상품의 경우 상품에 따라 배송기간이
+                상이할수 있습니다
+              </li>
+              <li>
+                <span>-</span>각 공급사마다 추가 배송비가 부과될수 있으며,
+                배송비 부과 기준에 따라 별도의 배송비가 책정될 수도 있습니다.
+              </li>
+              <li>
+                <span>-</span>직접수령은 불가하며 온라인 주문/배송만 가능합니다.
+              </li>
+              <li>
+                <span>-</span>공급사의 배송실수나 착오로 인한 반품 배송비용은
+                공급사에서 부담합니다.
+              </li>
+              <li>
+                <span>-</span>상품의 재고상황에 따라 배송일이 다소 지연되거나
+                품절취소 될 수도 있으니, 이 점 양해하여 주시기 바랍니다.
+              </li>
+            </ul>
+            <div class="content_delivery-subtitle">교환/반품</div>
+            <ul>
+              <li>
+                <span>-</span>교환/반품/취소/환불 신청은 배송완료 후 7일 이내
+                가능합니다.(단, 일부 제품의 경우 신청이 제한될 수 있습니다.)
+              </li>
+              <li>
+                <span>-</span>환불승인 후 영업일 기준 3~7일 이내 환불 및
+                취소여부 확인 가능합니다.
+              </li>
+              <li>
+                <span>-</span>상품 불량인 경우는 배송비를 포함한 전액이
+                환불됩니다.
+              </li>
+              <li>
+                <span>-</span>상품가치가 훼손된 경우 반품/환불이 불가합니다.
+                (제품포장 개봉 및 주문제작상품/밀봉포장상품 및 스티커부착 상품 /
+                식품 등)
+              </li>
+              <li>
+                <span>-</span>출고 이후 반품/환불 요청 시 상품 회수 후
+                처리됩니다.
+              </li>
+              <li>
+                <span>-</span>상품페이지에 교환/환불/AS에 대한 브랜드 개별기준이
+                있는 경우에는 해당 내용이 우선 적용 됩니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"
+      integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="../../resource/js/component/addTags.js"></script>
+    <script src="../../resource/js/component/addComponent.js"></script>
+    <script
+      type="text/javascript"
+      src="../../resource/js/component/chat.js"
+    ></script>
+    <script src="../../resource/js/screen/productdetail.js"></script>
+    <script src="../../resource/js/component/comment.js"></script>
+    <script src="../../resource/js/component/moveTop.js"></script>
+  </body>
+</html>

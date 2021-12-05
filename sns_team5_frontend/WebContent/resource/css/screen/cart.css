@@ -1,0 +1,235 @@
+.cart-content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1200px;
+}
+
+.cart-content {
+  width: 810px;
+  padding: 30px 0;
+}
+
+.cart-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 15px;
+}
+
+.cart-content-list_item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.cart-content-list_main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cart-content-list_main.order {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cart-image-wrap {
+  width: 80px;
+  height: 80px;
+  margin-left: 15px;
+}
+
+.cart-image-wrap img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.cart-item-title {
+  width: 475px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 15px;
+}
+
+.cart-item-title div:first-child {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.cart-item-title div:nth-child(2) {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.cart-item-pricewrap {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.cart-item-quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item-quantity div {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item-quantity div:not(:last-child) {
+  margin-right: 5px;
+}
+
+.cart-item-quantity div:not(:nth-child(2)) {
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.cart-item-del {
+  margin-left: 50px;
+}
+
+.cart-sidebar {
+  width: 320px;
+  margin-top: 60px;
+}
+
+.cart-sidebar-main_title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.cart-sidebar-main_all,
+.cart-sidebar-main_del,
+.cart-sidebar-main_dis {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.cart-sidebar-main_all div:not(.main_all-price),
+.cart-sidebar-main_del div,
+.cart-sidebar-main_dis div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.main_all-price {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.cart-sidebar-main span {
+  margin-left: 5px;
+}
+
+.cart-sidebar-main_sum {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.cart-sidebar-main_sum_title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.cart-sidebar-main_sum_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_all-sumPrice {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.cart-sidebar-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcce00;
+  color: white;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cart-item-price-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-content input {
+  width: 15px;
+  height: 15px;
+}
+
+.cart-all-check {
+  margin-right: 10px;
+}
+
+.cart-content-header-right {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.cart-item-title div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item-title div:last-child span {
+  margin-bottom: 5px;
+}
+
+.cart-item-price-wrap {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart-item-quantity_quantity {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.cart-item-del .fa-times {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.3);
+}

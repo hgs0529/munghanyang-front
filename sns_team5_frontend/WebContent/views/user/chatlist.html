@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <div class="chat_main">
+      <div class="chatlist"></div>
+      <div class="addchat">
+        <div class="question_list">
+          <div class="chat-logo-img"><img src="/upload/logo/logo.png" /></div>
+          <div class="question_list_body">
+            <div class="list_header">
+              <div class="list_user">Munghanyang</div>
+            </div>
+            <div class="question_list_content">
+              <span>혹시<a href="#">FAQ</a>읽어보셨나요?</span
+              ><span>답변이 이미 적혀있을수도 있어요</span>
+            </div>
+          </div>
+        </div>
+        <div class="chat_btn">
+          <i class="fas fa-paper-plane"></i>새 문의하기
+        </div>
+        <div class="chatbot_btn"><i class="fas fa-robot"></i>챗봇간편문의</div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      /* const openChat = (seq) => {
+	$("#chatbox").empty();
+	$("#wrapper").css("display", "");
+	$.ajax({
+		url: "http://localhost:3000/chat/messages",
+		data: { roomid: seq },
+		success: (chats) => {
+			if(chats.length > 0) {
+				for(i = 0; i < chats.length; i++) {
+					// 유저정보 요청
+					
+					
+					if(chats[i].userid === loggedInUser) {
+						$("#chatbox").append("<div class='usermsg'>" + chats[i].content + "</div><span>" + chats[i].wdate + "</span><br>");
+					} else {
+						$("#chatbox").append("<div align='right'><div class='botmsg'>" + chats[i].content + "</div><span>" + chats[i].wdate + "</span></div><br>");
+					}
+				}
+			}
+		},
+		error: () => {
+			alert("error");
+		}
+	})
+	websocketConnect(seq);
+} */
+
+      /*
+
+getDmList(); */
+    </script>
+  </body>
+</html>

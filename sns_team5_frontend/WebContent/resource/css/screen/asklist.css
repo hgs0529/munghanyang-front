@@ -1,0 +1,86 @@
+.asklist-main-container,
+.asklist-header-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-container main {
+  margin-top: 50px;
+}
+
+.asklist-table {
+  width: 1200px;
+}
+
+.addAnswer {
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.ModifyAnswer {
+  border: none;
+  outline: none;
+  background-color: #fcce00;
+  color: #1f3e84;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#askContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#askContent input {
+  width: 500px;
+  height: 40px;
+  padding: 9px 15px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#answerContent label,
+#askContent label {
+  width: 500px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+textarea#answer,
+#askContent textarea {
+  height: 200px;
+  width: 500px;
+  resize: none;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+textarea#answer:focus,
+#askContent textarea:focus {
+  outline: none;
+}
+
+#answerSubmit {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fcce00;
+  color: #1f3e84;
+  margin-top: 20px;
+}

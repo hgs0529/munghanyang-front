@@ -1,0 +1,354 @@
+.best-knowhow {
+  width: 1200px;
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.best-review {
+  width: 1200px;
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+.best-knowhow.first {
+  margin-top: 50px;
+  padding-bottom: 0px;
+}
+
+.title-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.title-wrap div:first-child {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.title-wrap div:last-child {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.title-wrap div:last-child:hover {
+  color: #fcce00;
+}
+
+.best-knowhow-block-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.best-knowhow-image-wrap {
+  width: 280px;
+  height: 200px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.best-knowhow-image-wrap img {
+  width: 280px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.best-knowhow-image-wrap img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.best-photo-block-list {
+  width: 1200px;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.best-knowhow-content-wrap {
+  height: 120px;
+  padding: 15px 10px;
+}
+
+.best-knowhow-content-wrap_title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.best-knowhow-content-wrap_profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.best-knowhow-content-wrap_avatar {
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.best-knowhow-content-wrap_avatar img {
+  width: 22px;
+  height: 22px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.best-knowhow-content-wrap_nick {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.best-photo-image-wrap {
+  overflow: hidden;
+  width: 280px;
+  height: 280px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.top-image-wrap {
+  position: relative;
+}
+
+.best-photo-image-wrap img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.best-photo-image-wrap img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.top-image-wrap .bookmark,
+.best-photo-image-wrap .bookmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 40px;
+  position: absolute;
+  top: -8px;
+  left: 10px;
+}
+
+.top-image-wrap .bookmark::before,
+.best-photo-image-wrap .bookmark::before {
+  content: "";
+  background-image: url("/upload/logo/pngegg.png");
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.9;
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  top: 5px;
+  left: 0px;
+}
+
+.top-image-wrap .bookmark span,
+.best-photo-image-wrap .bookmark span {
+  font-size: 14px;
+  color: white;
+  position: relative;
+}
+
+.best-photo-main_profile {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.best-photo-main_profile img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  margin-right: 5px;
+  border: 2px solid white;
+}
+
+.best-photo-main_profile span {
+  font-size: 13px;
+  color: white;
+  font-weight: 700;
+}
+
+.best-photo-main_icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 15px;
+  right: 15px;
+}
+
+.best-photo-main_icon i {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+}
+
+.best-review-block-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.best-review-image-wrap {
+  width: 385px;
+  height: 260px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.best-review-image-wrap img {
+  width: 385px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.best-review-image-wrap img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.best-review-content-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 120px;
+  padding: 15px 10px;
+}
+
+.best-review-content-wrap_title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.best-review-content-wrap_profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.best-review-content-wrap_avatar {
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.best-review-content-wrap_avatar img {
+  width: 22px;
+  height: 22px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.best-review-content-wrap_nick {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.best-bbs-block-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.best-bbs-image-wrap {
+  width: 280px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.best-bbs-image-wrap img {
+  width: 280px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.best-bbs-image-wrap img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.best-bbs-content-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 120px;
+  padding: 15px 10px;
+}
+
+.best-bbs-content-wrap_title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.best-bbs-content-wrap_profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.best-bbs-content-wrap_avatar {
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.best-bbs-content-wrap_avatar img {
+  width: 22px;
+  height: 22px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.best-bbs-content-wrap_nick {
+  font-size: 13px;
+  font-weight: 600;
+}

@@ -1,0 +1,33 @@
+#sns-login {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sns-login button {
+  font-weight: 600;
+  font-size: 18px;
+  height: 50px;
+  width: 400px;
+  border-radius: 5px;
+}
+
+#sns-login div {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 30px;
+}
+
+#sns-login .logo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#sns-login .logo a {
+  margin: 0 20px;
+}

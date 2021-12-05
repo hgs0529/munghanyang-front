@@ -1,0 +1,14 @@
+.colorBox {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-top: 20px;
+  background-color: #1f3e84;
+}
+
+.colorBoxTitle {
+  font-size: 25px;
+  margin-bottom: 38px;
+  margin-left: 10px;
+  color: #fcce00;
+}

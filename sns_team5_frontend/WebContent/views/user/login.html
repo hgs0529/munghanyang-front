@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>munghanyang - join</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <meta
+      name="google-signin-client_id"
+      content="1326978654-9pboqujka1shkri0l6i9jehehsrvl4c8.apps.googleusercontent.com"
+    />
+    <script
+      src="https://apis.google.com/js/platform.js?onload=init"
+      async
+      defer
+    ></script>
+
+    <link rel="stylesheet" href="../../resource/css/style.css" />
+    <script src="../../resource/js/component/refreshUserInfo.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="content-container">
+      <h2 class="page-title">회원가입</h2>
+      <form id="loginFrm">
+        <input
+          type="email"
+          id="email-logininp"
+          placeholder="이메일"
+          size="20"
+        />
+        <input
+          type="password"
+          id="pwd-logininp"
+          placeholder="비밀번호"
+          size="20"
+        />
+      </form>
+      <div id="login-btns">
+        <button type="button" id="loginBtn">로그인</button>
+        <div id="login-link">
+          <a href="#">비밀번호 찾기</a>
+          <a href="join.html">회원가입</a>
+        </div>
+        <div id="sns-login">
+          <div>sns계정으로 회원가입</div>
+          <div class="logo">
+            <a href="http://localhost:3000/oauth2/authorization/kakao"
+              ><img
+                id="kakao-login"
+                height="50"
+                src="../../image/login/kakao-login2.svg"
+            /></a>
+            <a href="http://localhost:3000/oauth2/authorization/naver"
+              ><img
+                id="naver-login"
+                height="50"
+                src="../../image/login/naver-login2.svg"
+            /></a>
+            <a href="http://localhost:3000/oauth2/authorization/google"
+              ><img
+                id="google-login"
+                height="50"
+                src="../../image/login/google-login2.svg"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../../resource/js/component/addTags.js"></script>
+    <script src="../../resource/js/component/addComponent.js"></script>
+    <script src="../../resource/js/screen/login.js"></script>
+    <script type="text/javascript">
+      $("#login").click(function () {});
+    </script>
+  </body>
+</html>

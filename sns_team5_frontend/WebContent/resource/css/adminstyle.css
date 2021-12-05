@@ -1,0 +1,255 @@
+@charset "UTF-8";
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+table {
+  position: relative;
+  margin: 0 auto;
+  max-width: 80%;
+  width: 100%;
+
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+
+  box-shadow: 0 0 10px 0 #eaeaea;
+
+  overflow: hidden;
+}
+
+thead tr {
+  height: 60px;
+
+  text-align: center;
+
+  background: #1f3e84;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+tbody tr {
+  height: 48px;
+
+  text-align: center;
+
+  border-top: 1px solid #eaeaea;
+
+  transition: all 0.4s ease;
+}
+
+th,
+td {
+  margin: 2rem;
+}
+
+tbody tr:hover {
+  background: #eee;
+}
+
+label {
+  padding: 3px;
+  display: inline-block;
+
+  border-radius: 3px;
+
+  background: #1f3e84;
+  color: #fff;
+  font-size: 13px;
+}
+
+#sns-label {
+  background: none;
+  border: none;
+  color: #000;
+}
+
+.header-container {
+  margin: 2rem;
+  padding: 20px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  border-radius: 15px;
+}
+
+.header-container .datepicker {
+  margin: 1rem 0.5rem;
+}
+
+.header-container .datepicker input {
+  width: 150px;
+  height: 30px;
+
+  border: solid 1px #eaeaea;
+  border-radius: 5px;
+}
+
+.header-container .datepicker span {
+  color: #1f3e84;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.header-container .header-title {
+  margin-bottom: 5px;
+  padding: 3px;
+  width: auto;
+
+  color: #1f3e84;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.header-container .search-container #search {
+  width: 150px;
+  height: 30px;
+
+  border: solid 1px #eaeaea;
+  border-radius: 5px;
+}
+
+#dataPerPage,
+#orderStatus,
+#answerStatus,
+.header-container .search-container #choice {
+  height: 30px;
+
+  border: solid 1px #eaeaea;
+  border-radius: 5px;
+}
+
+#orderStatus {
+  margin-left: 2rem;
+  width: 100px;
+
+  color: #eaeaea;
+  background: #1f3e84;
+
+  font-size: 16px;
+}
+
+#statusChangeBtn {
+  width: 50px;
+  height: 30px;
+
+  border: solid 1px #1f3e84;
+  border-radius: 5px;
+
+  background: #fff;
+  color: #1f3e84;
+}
+
+tbody tr button,
+#answerSubmit,
+.header-container .search-container #searchBtn {
+  width: 70px;
+  height: 30px;
+
+  border: none;
+  border-radius: 5px;
+
+  background: #fcce00;
+  color: #1f3e84;
+  font-weight: 700;
+}
+
+#answerSubmit {
+  align-items: center;
+}
+
+.main-container .list-text {
+  position: relative;
+  margin: 0 auto;
+  max-width: 80%;
+  width: 100%;
+}
+
+#displayCount {
+  margin: 1rem 0;
+  color: #8898aa;
+}
+
+#sns_only {
+  margin-left: 1rem;
+}
+
+.paging-container {
+  margin-top: 1rem;
+
+  display: flex;
+  justify-content: center;
+}
+
+.paging-container ul {
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #eaeaea;
+  border-right: 0;
+  list-style: none;
+}
+
+.paging-container ul li {
+  text-align: center;
+  float: left;
+}
+
+.paging-container ul li a {
+  display: block;
+  font-size: 14px;
+  padding: 9px 12px;
+  border-right: solid 1px #eaeaea;
+  box-sizing: border-box;
+
+  color: #1f3e84;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.paging-container ul li:hover a {
+  background: #fcce00;
+  color: #fff;
+}
+
+.askContent,
+.answerContent {
+  margin: 2rem auto;
+  padding: 2rem;
+
+  max-width: 750px;
+  width: 100%;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  border: solid 1px #eaeaea;
+}
+
+#askContent input {
+  border: none;
+}
+
+textarea {
+  margin: 1rem auto;
+
+  width: 500px;
+  height: 100px;
+
+  border: solid 1px #8898aa;
+  resize: none;
+}
+
+#askContent textarea {
+  margin-top: 0;
+  border: none;
+}
+
+#askContent label {
+  margin-top: 10px;
+}

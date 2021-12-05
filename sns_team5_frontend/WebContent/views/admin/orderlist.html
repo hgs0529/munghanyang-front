@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>주문 목록</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../resource/css/adminstyle.css" />
+    <script type="text/javascript">
+      $(document).ready(() => {});
+    </script>
+  </head>
+  <body>
+    <nav id="sidebar"></nav>
+
+    <main style="margin-left: 78px">
+      <header class="header-container">
+        <div class="datepicker">
+          <input type="date" id="startDate" data-input />
+          <label for="startDate">부터</label>
+          <input type="date" id="endDate" data-input />
+          <label for="endDate">까지</label>
+        </div>
+        <div class="search-container">
+          <select id="choice" name="choice">
+            <option value="" selected>선택</option>
+            <option value="realname">주문자명</option>
+            <option value="email">이메일</option>
+            <option value="address">배송지</option>
+          </select>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="검색어 입력"
+          />
+          <input type="button" id="searchBtn" value="검색" />
+        </div>
+      </header>
+
+      <div class="main-container">
+        <div class="list-text">
+          <label for="dataPerPage">목록보기</label>
+          <select id="dataPerPage">
+            <option value="10" selected>10개씩보기</option>
+            <option value="15">15개씩보기</option>
+            <option value="20">20개씩보기</option>
+          </select>
+
+          <select id="orderStatus">
+            <option selected>주문상태</option>
+            <option value="0">결제완료</option>
+            <option value="1">배송준비</option>
+            <option value="2">배송중</option>
+            <option value="3">배송완료</option>
+          </select>
+          <input type="button" id="statusChangeBtn" value="변경" />
+
+          <p id="displayCount"></p>
+        </div>
+
+        <div class="list-table">
+          <table>
+            <thead>
+              <tr>
+                <th>체크</th>
+                <th>주문번호</th>
+                <th>주문상태</th>
+                <th>주문일자</th>
+                <th>주문상품</th>
+                <th>배송지</th>
+                <th>주문자</th>
+                <th>전화번호</th>
+                <th>금액</th>
+                <th>사용포인트</th>
+              </tr>
+            </thead>
+            <tbody id="order-list"></tbody>
+          </table>
+        </div>
+
+        <div class="paging-container">
+          <ul id="pagingul"></ul>
+        </div>
+      </div>
+    </main>
+
+    <script type="text/javascript">
+      let totalData; // 전체 자료 수
+      let dataPerPage; // 페이지당 보여줄 자료 수
+      let pageCount = 10; // 페이징에 한번에 보여줄 페이지 수
+      let globalCurrentPage = 1; // 전역변수로 쓰일 현재 페이지
+      let nextPage;
+      let prevPage;
+
+      $(document).ready(function () {
+        $("#sidebar").load("sidebar.html");
+        dataPerPage = $("#dataPerPage").val();
+
+        $.ajax({
+          url: "http://localhost:3000/admin/orders/count",
+          type: "get",
+          data: {
+            choice: $("#choice").val(),
+            search: $("#search").val(),
+            currentPage: 1,
+            dataPerPage: dataPerPage,
+            startDate: $("#startDate").val(),
+            endDate: $("#endDate").val(),
+          },
+          xhrFields: { withCredentials: true },
+          crossDomain: true,
+          success: function (count) {
+            console.log(count);
+            totalData = count;
+            displayData(1, dataPerPage);
+            paging(totalData, dataPerPage, pageCount, 1);
+          },
+        });
+      });
+
+      function displayData(currentPage, dataPerPage) {
+        currentPage = Number(currentPage);
+        dataPerPage = Number(dataPerPage);
+
+        $.ajax({
+          url: "http://localhost:3000/admin/orders",
+          type: "get",
+          data: {
+            choice: $("#choice").val(),
+            search: $("#search").val(),
+            currentPage: currentPage,
+            dataPerPage: dataPerPage,
+            startDate: $("#startDate").val(),
+            endDate: $("#endDate").val(),
+          },
+          xhrFields: { withCredentials: true },
+          crossDomain: true,
+          success: function (list) {
+            $("#order-list").html("");
+            $.each(list, function (i, item) {
+              let str = "<tr>";
+              str +=
+                "<td id='id" +
+                i +
+                "' ><input type='checkbox' name='statusChk' value='" +
+                item.seq +
+                "'></td>";
+              str += "<td>" + item.seq + "</td>";
+
+              switch (item.orderstatus) {
+                case 0:
+                  str += "<td>결제완료</td>";
+                  break;
+                case 1:
+                  str += "<td>배송준비</td>";
+                  break;
+                case 2:
+                  str += "<td>배송중</td>";
+                  break;
+                case 3:
+                  str += "<td>배송완료</td>";
+                  break;
+                default:
+                  str += "<td>오류</td>";
+              }
+
+              str += "<td>" + item.orderdate + "</td>";
+              str += "<td id='pname" + i + "'></td>";
+              str += "<td>" + item.address + "</td>";
+              str += "<td>" + item.ordername + "</td>";
+              str += "<td>" + item.phonenum + "</td>";
+              str += "<td>" + item.productamount + "</td>";
+              str += "<td>" + item.usemungpoint + "P</td>";
+              str += "</tr>";
+
+              $("#order-list").append(str);
+
+              let seq = item.seq;
+
+              $.ajax({
+                url: "http://localhost:3000/admin/orders/count/products",
+                type: "get",
+                data: { seq: seq },
+                xhrFields: { withCredentials: true },
+                crossDomain: true,
+                success: function (resp) {
+                  if (resp.pcount > 1) {
+                    $("#pname" + i).text(
+                      resp.pname + "외 " + (resp.pcount - 1) + "개"
+                    );
+                  } else {
+                    $("#pname" + i).text(resp.pname);
+                  }
+                },
+              });
+            });
+          },
+        });
+      }
+
+      function paging(totalData, dataPerPage, pageCount, currentPage) {
+        let totalPage = Math.ceil(totalData / dataPerPage);
+        console.log("totalPage: " + totalPage);
+        if (totalPage < pageCount) {
+          pageCount = totalPage; // 한번에 보여줄 페이지보다 전체 페이지가 작은 경우: totalPage를 페이지 수로 정함
+        }
+
+        let pageGroup = Math.ceil(currentPage / pageCount); // 지금 페이지가 몇번째 그룹에 있는지 (1~10, 11~20, 21~30, ...)
+        let lastPage = pageGroup * pageCount; // 화면에 보일 마지막 페이지 수
+
+        if (lastPage > totalPage) {
+          lastPage = totalPage;
+        }
+
+        let firstPage = lastPage - (pageCount - 1); // 화면에 보일 첫번째 페이지 번호 (1, 11, 21, ...)
+        nextPage = lastPage + 1;
+        prevPage = firstPage - 1;
+
+        $("#pagingul").html("");
+        let str = "";
+
+        if (prevPage > 0) {
+          str += "<li><a href='#' id='prevPage'> 이전 </a></li>";
+        }
+
+        for (var i = firstPage; i <= lastPage; i++) {
+          if (currentPage == i) {
+            str += "<li><a href='#' id='" + i + "'>" + i + "</a></li>";
+          } else {
+            str += "<li><a href='#' id='" + i + "'>" + i + "</a></li>";
+          }
+        }
+
+        if (lastPage < totalPage) {
+          str += "<li><a href='#' id='nextPage'> 다음 </a></li>";
+        }
+
+        $("#pagingul").html(str);
+
+        let displayCount = "";
+        displayCount = "전체 " + totalPage + " 페이지 - " + totalData + "건";
+        $("#displayCount").text(displayCount);
+      }
+
+      $("#pagingul li a").click(function () {
+        let page = $(this).attr("id");
+        console.log("load page: " + page);
+
+        let selectedPage = $(this).text();
+        if (page == "nextPage") selectedPage = nextPage;
+        if (page == "prevPage") selectedPage = prevPage;
+
+        globalCurrentPage = seletedPage;
+
+        paging(totalData, dataPerPage, pageCount, selectedPage);
+        displayData(selectedPage, dataPerPage);
+      });
+
+      $("#searchBtn").click(function () {
+        console.log("search start");
+
+        displayData(1, dataPerPage);
+        paging(totalData, dataPerPage, pageCount, 1);
+      });
+
+      $("#dataPerPage").change(function () {
+        console.log("change dataPerPage");
+
+        dataPerPage = $("#dataPerPage").val();
+        displayData(globalCurrentPage, dataPerPage);
+        paging(totalData, dataPerPage, pageCount, globalCurrentPage);
+      });
+
+      $("#statusChangeBtn").click(function () {
+        console.log("change Status");
+
+        let status = Number($("#orderStatus").val());
+        let orderarray = [];
+        $("input[name='statusChk']:checked").each(function (i) {
+          orderarray.push(Number($(this).val()));
+        });
+        console.log(orderarray.toString());
+
+        $.ajax({
+          url: "http://localhost:3000/admin/orders/status",
+          type: "post",
+          data: { orderstatus: status, orderarray: orderarray },
+          xhrFields: { withCredentials: true },
+          crossDomain: true,
+          success: function (resp) {
+            console.log(resp);
+            alert("변경 성공");
+
+            dataPerPage = $("#dataPerPage").val();
+            displayData(globalCurrentPage, dataPerPage);
+            paging(totalData, dataPerPage, pageCount, globalCurrentPage);
+          },
+          error: function () {
+            alert("error");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

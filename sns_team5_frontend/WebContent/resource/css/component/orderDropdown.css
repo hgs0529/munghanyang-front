@@ -1,0 +1,31 @@
+.dropdown-order-button {
+  font-size: 14px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.order-dropdown-container {
+  position: relative;
+}
+
+.order-dropdown {
+  width: 100px;
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  background-color: white;
+}
+
+.order-dropdown-item {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  cursor: pointer;
+}
+
+.order-dropdown-item:hover {
+  background-color: rgba(31, 62, 132, 0.1);
+}

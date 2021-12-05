@@ -1,0 +1,177 @@
+.write-title {
+  font-size: 28px;
+  width: 820px;
+  text-align: start;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#write-knowhow_frm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 820px;
+  padding: 10px;
+}
+
+#write-cate {
+  margin-top: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 300px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+#write-knowhow_title {
+  width: 100%;
+}
+
+#write-knowhow_title {
+  width: 100%;
+}
+
+.write-knowhow_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+}
+
+.write-knowhow_titleP {
+  margin-top: 50px;
+  font-size: 18px;
+  padding: 10px 0;
+  width: 100%;
+  text-align: start;
+}
+
+.write-knowhow_titleP span {
+  color: red;
+  font-size: 18px;
+}
+
+#summernote-wrap {
+  margin: 15px 0;
+}
+
+#write-knowhow_title {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 18px 12px;
+}
+
+#write-knowhow_title::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.write-btns {
+  width: 100%;
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.write-btns button {
+  font-weight: 600;
+  font-size: 18px;
+  width: 250px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+}
+
+.write-btns button:first-child {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  margin-right: 20px;
+}
+
+.write-btns button:last-child {
+  background-color: #1f3e84;
+  color: #fcce00;
+}
+
+#write-hashtags {
+  margin: 10px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 800px;
+  position: relative;
+}
+
+#write-hashtags input {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.6);
+  border: none;
+  width: 120px;
+  padding-left: 30px;
+  border-radius: 5px;
+}
+
+#write-hashtags .fa-hashtag {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+}
+
+#write-hashtagList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+#write-hashtagList div {
+  padding: 10px;
+  font-size: 18px;
+  background-color: rgb(252, 206, 0);
+  margin-right: 10px;
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+}
+
+#write-hashtagList div .fa-times {
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+#thumbnail-input {
+  display: none;
+}
+
+#thumbnail-photo {
+  position: relative;
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 280px;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#thumbnail-photo i {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+#thumbnail-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}

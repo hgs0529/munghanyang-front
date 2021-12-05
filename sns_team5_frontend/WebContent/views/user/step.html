@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<!-- 아임포트관련 -->
+
+
+
+<script type="text/javascript">
+/* let productamount; */ // 프로덕트어마운트을 전역으로 사용할 수 있게 선언
+
+let pname; // 물품명
+let psum; // 장바구니에서 주문 시 합계금액
+let realname; // 주문자 실명
+let receivename;
+let receivephone; // 수령인 번호
+let address; // 상세주소
+
+let userid = 1;
+
+//html에서 추가하면, parameter를 받을 수 있는 소스 : 추가만 해주면 된다.
+
+const url = new URL(location.href);
+const urlParams = url.searchParams;
+const seq = urlParams.get("seq");
+
+</script>
+
+<!-- 장바구니의 합계 가져오기 -->
+<script type="text/javascript">
+
+
+	
+
+
+</script> 
+ 
+</head>
+<body>
+
+<h1>멍포인트</h1>
+
+<input type="text" value="0"><div class="point"></div>
+<input type = "button" class="allpoint" value="전부 사용하기" onclick="">
+
+<p class="usepoint">사용할 멍포인트
+<p class="">보유한 멍포인트 <!-- user table의 멍포인트 가져오기 --><div class="havepoint"></div>
+
+<br><br><br>
+
+<h1>결제수단</h1>
+
+<br><br><br>
+
+<h1>주문 내용 확인</h1>
+     <div>
+        
+                    <p class="productname">주문 상품명</p>   	 
+                    <p class="point">보유한 mungpoint</p>    
+                    <p class="deliveryamount">배송비</p> <!-- user table에서 가져오기 --> <div class="0">무료</div>
+                    <p class="payamount">총 결제금액</p>  <!-- 총 주문상품금액 - 사용한 멍포인트 -->
+                    <p class="savemungpoint">mungpoint 적립</p>   <div class="멍포인트 적립 유저테이블"></div>
+              
+              <div class="sumprice"></div>
+              <div class="havepoint"></div>
+              
+           			<br>
+           			<p> 약관동의 </p>
+           			<br>
+           			<input type="checkbox" name="all_agree" id="allCk" value="all_agree">전체동의
+           			<br>
+           			<input type="checkbox" name="odagree" id="agr" value="odagree">[필수]개인정보 제 3자 제공
+           			<br>
+            		<button id="check_module" type="button">결제하기</button>
+    </div>
+
+
+
+
+<!-- 배송지 가져오는 부분 -->
+<h1>배송지 정보 입력</h1>
+
+<div id="container">
+        <form name ="buyerInfo">
+            <fieldset>
+                <p1>주문고객 정보</p1>
+                <ul class = addressul>
+    
+                </ul>
+            </fieldset>
+        </form>
+    </div>
+    
+<br>
+
+<!-- 배송지 선택하는 탭 부분 -->
+
+<div class="tab">
+    <ul class="tabnav">
+      <li><a href="#tab01">기존 배송지 선택</a></li>
+      <li><a href="#tab02">신규 배송지 작성</a></li>
+    </ul>
+    <div class="tabcontent">
+      <div id="tab01">
+      		 <main class="main-container">
+					<label for="dataPerPage">배송지명 선택</label>
+		
+		<select class="choiceaddress" id="sa" onchange="addressDisplay()">
+			<option value="" selected disabled>-- 선택 --</option>
+		</select>
+		<div id="detailview"></div>
+
+<!-- 셀렉트 내용연결 하는 스크립트 -->
+<script type="text/javascript">
+
+	function addressDisplay() {
+		getAddressName($("#sa").val());
+}
+</script>
+
+   </main>
+      </div>
+      <div id="tab02">
+      <form id="frm">
+     			 <input type="hidden" id="userid" name="userid" size="10px" value="1"  readonly="readonly">
+     				<li>
+                        <label class="label" for="shippingName">수령인(받는 분)<span class="font_e2508b" style="color: #E2508B; font: 14px">*</span> </label> 
+                        	<input type="text" class="info" id="shippingName" name="receiveuser"> 
+                       		 <div class="option">
+                        		<input type="checkbox" id="infoOption" name="infoOption">
+                       		    <label for="infoOption" class="optionLabel">주문 고객 정보와 동일</label>
+              				 </div>
+                    </li>
+                    <li>
+                        <label class="label" for="shippingPhoneNumber">수령인 연락처<span class="font_e2508b" style="color: #E2508B; font: 14px">*</span> </label> 
+                        <input type="text" class="inputs" id="shippingPhoneNumber1" name="receivephone" maxlength="3" size='3'  style="display:inline;" >
+                        <span>-</span>
+                        <input type="text" class="inputs" id="shippingPhoneNumber2" name="receivephone" maxlength="4" size='3'  style="display:inline;" >
+                        <span>-</span>
+                        <input type="text" class="inputs" id="shippingPhoneNumber3" name="receivephone" maxlength="4" size='3'  style="display:inline;" >
+                    </li>
+                    
+                    <li>
+                        <label class="label" for="shippingAddressName">주소명<span class="font_e2508b" style="color: #E2508B; font: 14px">*</span> </label> 
+                        <input type="text" class="info" id="shippingAddressName" name="addressname">
+                    </li>
+                    <li>
+                        <label class="label" for="shippingAddress">상세주소<span class="font_e2508b" style="color: #E2508B; font: 20px">*</span> </label> 
+                        <input type="text" class="info" id="shippingAddress" name="address">
+                    </li>
+                    <li>
+                        	 <main class="main-container">
+					<label for="dataPerPage">배송시 요청사항</label>
+							<select id="dataPerPage">
+								<option value="0" selected>----------------배송메시지 선택----------------</option>
+								<option value="1" >부재 시 문앞에 배송해주세요</option>
+       							<option value="2">배송시 연락바랍니다</option>
+							</select>
+						<button type="button" id="btn" class="btn btn-secondary">주소 저장</button>
+                    </li> 
+                    </form>
+      </div>
+    </div>
+ 
+
+ 
+<!-- 전화번호 입력칸 오토 포커싱 아직 미완성  -->   
+<!-- <script>
+$(function() {
+    $(".inputs").keyup (function () {
+        var charLimit = $(this).attr("maxlength");
+        if (this.value.length >= charLimit) {
+            $(this).next('.inputs').focus();
+            return false;
+        }
+    });
+});
+</script> -->
+ 
+
+    
+
+
+<!-- 일단 주소명 목록 띄우기 --> 
+<script type="text/javascript">
+
+$(document).ready(function (){
+	
+	getAddress(1);
+
+});
+function getAddress( userid ) {	
+	
+
+}
+
+</script>
+
+ <!--  셀렉트에 따라 상세내용가져오기 -->
+<script type="text/javascript">
+
+	function getAddressName( x ) {	
+	
+		
+}
+
+</script> 
+
+<!-- 발송인의 정보 불러온것  --> 
+<script type="text/javascript">
+
+getAddressOne(1);
+
+function getAddressOne( seq ) {
+	
+
+}
+</script>    
+    
+
+
+<!-- 아임포트 관련 --> 
+<script>
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+@charset "UTF-8";
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
+
+* {
+  margin:0;
+  padding:0;
+  
+  box-sizing:border-box;
+  
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+	position:fixed;
+	min-height:100vh;
+	width:100%;
+	overflow:hidden;
+}
+
+.sidebar {
+	position:fixed;
+	top:0;
+	left:0;
+	
+	padding:6px 14px;
+	height:100%;
+	width:70px;
+	
+	display:flex;
+	flex-flow:column;
+	align-content:center;
+	
+	box-shadow:0 7px 2px #eaeaea;
+	background:#fff;
+	
+	transition: all 0.5s ease;
+}
+
+.sidebar .logo {
+	position:relative;
+	margin:1em 0.5em;
+	height:30px;
+	width:100%;
+	
+	display:flex;
+	align-content:center;
+	align-items:center;
+	line-height:30px;
+	
+	pointer-events:none;
+}
+
+.sidebar .logo img {
+	width:30px;
+	height:30px;
+}
+
+.sidebar ul {
+	margin-top:20px;
+}
+
+.sidebar ul li {
+	position:relative;
+	margin:0 5px;
+	height:50px;
+	width:100%;
+	
+	list-style:none;
+	line-height:40px
+}
+
+.sidebar ul li .tooltip {
+	position:absolute;
+	left:122px;
+	top:0;
+	
+	height:35px;
+	width:122px;
+	border-radius:5px;
+	text-align:center;
+	transform:translate(-50%, -50%);
+	
+	background:#fff;
+	line-height:35px;
+	box-shadow:0 5px 5px rgba(0,0,0,0.1);
+	transition:0s;
+	opacity:0;
+	pointer-events:none;
+	display:block
+}
+
+.sidebar ul li:hover .tooltip {
+	top:30%;
+	transition: all 0.5s ease;
+	opacity:1;
+}
+
+.sidebar ul li a {
+	position:relative;
+	margin:10px 0;
+	display:flex;
+	align-content:center;
+	align-items:center;
+	
+	border-radius:5px;
+	
+	color:#1f3e84;
+	text-decoration: none;
+	
+	transition: all 0.4s ease;
+	white-space:nowrap;
+}
+
+.sidebar ul li a:hover {
+	color: #fcce00;
+}
+
+.sidebar ul li a svg {
+	height:25px;
+	min-width:25px;
+	margin-left:0.25em;
+	
+	text-align:center;
+	line-height:25px;
+}
+
+.sidebar ul li a .link-name {
+	font-size:18px;
+	font-weight:500;
+	
+	opacity:0;
+	pointer-events:none;
+}
+
+.sidebar .logout a {
+	position:absolute;
+	left:40%;
+	bottom:5px;
+	
+	margin:10px 0;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	
+	border-radius:5px;
+	
+	color:#8898aa;
+	text-decoration: none;
+}
+
+.sidebar .logout a svg {
+	align-self:center;
+}

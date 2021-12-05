@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>munghanyang - join</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../resource/css/style.css" />
+    <script src="../../resource/js/component/refreshUserInfo.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="content-container">
+      <h2 class="page-title">회원가입</h2>
+      <form id="joinFrm">
+        <div id="join-email">
+          <label for="email-input" id="emailLabel">이메일</label>
+          <input
+            type="email"
+            id="email-input"
+            name="email"
+            placeholder="이메일을 입력해주세요."
+            size="20"
+          />
+          <p id="emailcheck_p"></p>
+          <div id="smtpBtn" class="Disabled">이메일 인증하기</div>
+        </div>
+        <div id="email-auth"></div>
+        <div id="join-nickname">
+          <label for="nickname-input" id="nickLabel">닉네임</label>
+          <input
+            type="text"
+            id="nickname-input"
+            name="nickname"
+            placeholder="닉네임을 입력해주세요."
+            size="20"
+          />
+          <p id="nicknamecheck_p"></p>
+        </div>
+        <div id="join-pwd">
+          <label for="pwd-input" id="pwdLabel">비밀번호</label>
+          <input
+            type="password"
+            id="pwd-input"
+            name="pwd"
+            placeholder="비밀번호(영문+숫자8자이상)"
+          />
+          <p id="pwdcheck_p"></p>
+          <label for="pwd2-input" id="pwd2Label">비밀번호확인</label>
+          <input
+            type="password"
+            id="pwd2-input"
+            name="pwd2"
+            placeholder="비밀번호 확인"
+          />
+          <p id="pwdcheck_p2"></p>
+        </div>
+        <div id="join-btns">
+          <button type="button" id="joinbtn">회원가입</button>
+        </div>
+        <div id="sns-login">
+          <div>sns계정으로 회원가입</div>
+          <div class="logo">
+            <a href="http://localhost:3000/oauth2/authorization/kakao"
+              ><img
+                id="kakao-login"
+                height="50"
+                src="../../image/login/kakao-login2.svg"
+            /></a>
+            <a href="http://localhost:3000/oauth2/authorization/naver"
+              ><img
+                id="naver-login"
+                height="50"
+                src="../../image/login/naver-login2.svg"
+            /></a>
+            <a href="http://localhost:3000/oauth2/authorization/google"
+              ><img
+                id="google-login"
+                height="50"
+                src="../../image/login/google-login2.svg"
+            /></a>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="../../resource/js/component/addTags.js"></script>
+    <script src="../../resource/js/component/addComponent.js"></script>
+    <script src="../../resource/js/screen/join.js"></script>
+  </body>
+</html>

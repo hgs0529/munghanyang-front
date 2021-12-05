@@ -1,0 +1,344 @@
+.order-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1200px;
+}
+
+.order-left {
+  width: 730px;
+}
+
+.order-right {
+  width: 360px;
+  position: sticky;
+  top: 0;
+}
+
+.order-left h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.order-left-orderer {
+  margin-bottom: 50px;
+}
+
+.order-left-porint_title,
+.order-left-product_title,
+.order-left-address_title,
+.order-left-orderer_title {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.order-left-orderer_name,
+.order-left-orderer_email,
+.order-left-orderer_phone {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.order-left-orderer_name {
+  padding-bottom: 10px;
+}
+
+.address-form-wrap,
+.order-left-orderer_email,
+.order-left-orderer_phone {
+  padding: 10px 0;
+}
+
+.address-form-wrap div:first-child,
+.order-left-orderer_name div:first-child,
+.order-left-orderer_email div:first-child,
+.order-left-orderer_phone div:first-child {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 72px;
+  height: 40px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+#receiver-name-select,
+.address-form-wrap:not(:nth-child(2)) input:not(.add-basic-address),
+.order-left-orderer_name input,
+.order-left-orderer_email input {
+  width: 300px;
+  height: 40px;
+  padding: 9px 15px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.order-left-orderer_inputs select {
+  width: 95px;
+  height: 40px;
+  padding: 9px 15px;
+  border-radius: 5px;
+  border-color: rgba(0, 0, 0, 0.1);
+  margin-right: 5px;
+}
+
+.address-form-phone input,
+.order-left-orderer_phone-inputs input {
+  width: 195px;
+  height: 40px;
+  padding: 9px 15px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.address-form-wrap:not(:nth-child(4)) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.address-form-phone select {
+  width: 95px;
+  height: 40px;
+  padding: 9px 15px;
+  border-radius: 5px;
+  border-color: rgba(0, 0, 0, 0.1);
+  margin-right: 5px;
+}
+
+.address-form-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.address-form-inputs input:not(.add-basic-address) {
+  margin-bottom: 10px;
+}
+
+.address-form-wrap:nth-child(4) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#address-form-address-list,
+.address-form-wrap:last-child select {
+  width: 300px;
+  height: 40px;
+  padding: 9px 15px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.order-left-address_btns {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.order-left-address_form {
+  margin-bottom: 50px;
+}
+
+.add-select-address-btn,
+.add-new-address-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.add-select-address-btn.active,
+.add-new-address-btn.active {
+  background-color: #fcce00;
+  color: white;
+}
+
+.order-left-product_list {
+  margin-bottom: 50px;
+}
+
+.order-left-point {
+  margin-bottom: 50px;
+}
+
+.order-left-porint_inputs {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.order-left-porint_inputs input {
+  width: 195px;
+  height: 40px;
+  padding: 9px 15px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.order-left-porint_inputs div {
+  width: 120px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcce00;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.order-left-porint_mypoint span:first-child {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.order-left-porint_mypoint-my {
+  color: #fcce00;
+  font-size: 15px;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.add-basic-address {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.address-form-inputs-chk {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.order-right-detail {
+  margin-top: 95px;
+  padding: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.order-right-title {
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.order-right-total,
+.order-right-delivery,
+.order-right-point {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.order-right-sum {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.order-right-sum_num {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.order-right-sum_bot {
+  margin-top: 10px;
+}
+
+.order-right-total_title,
+.order-right-delivery_title,
+.order-right-point_title {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.order-right-total_num {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.order-right-delivery_num,
+.order-right-point_num {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.order-right-sum_title {
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.order-right-sum-val {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fcce00;
+}
+
+.order-right-sum_top span:last-child {
+  font-size: 22px;
+  font-weight: 700;
+  color: black;
+  margin-left: 5px;
+}
+
+.order-right-sum_bot {
+  font-size: 13px;
+}
+
+.order-right-sum_bot span:last-child {
+  margin-left: 5px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.order-right-btn {
+  width: 360px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcce00;
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.order-left-address_form {
+  display: block;
+}
+
+.order-left-address_form1 {
+  display: none;
+}

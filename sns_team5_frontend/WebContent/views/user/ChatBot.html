@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ChatBot.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="css/chatbox.css" />
+
+    <script type="text/javascript">
+      const url = new URL(location.href);
+      const urlParams = url.searchParams;
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="menu">
+        <h3 class="welcome">Welcome ChatBot</h3>
+      </div>
+
+      <div id="chatbox">
+        <div align="right">
+          <div class="botmsg">
+            <img
+              src="../../image/20211126212553-db453841-c933-4c7d-b0aa-75e7158eb2e9-image.png"
+              width="100px"
+              height="100px"
+            />&nbsp;&nbsp;> 안녕하세요. (주)멍하냥~사이트의 문의답변 AI
+            멍냥봇입니다. 시작하시려면 (챗봇, 멍냥봇, 시작, 처음, 초기화, 목록,
+            버튼) 등을 채팅창에 입력해주세요
+          </div>
+        </div>
+        <br />
+      </div>
+
+      <div id="myform">
+        <input
+          type="text"
+          id="usermsg"
+          placeholder="챗봇을 불러보세요 예시(챗봇아, 멍냥아, 멍냥봇아)"
+        />
+        <input type="button" id="submitmsg" value="send" />
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#chatbox")
+          .stop()
+          .animate({ scrollTop: $("#chatbox")[0].scrollHeight }, 2000);
+
+        $("#submitmsg").click(function () {
+          if ($("#usermsg").val() != "") {
+            $("#chatbox").append(
+              "<div class='usermsg'>" + $("#usermsg").val() + "</div><br>"
+            );
+
+            // naver 전송
+            $.ajax({
+              url: "http://localhost:3000/chatbot",
+              type: "post",
+              data: { msg: $("#usermsg").val() }, // 유저메시지를 챗봇 주소에 보내기
+              success: function (str) {
+                console.log(str);
+                respProc(str); // 유저메시지에 따라 생긴 반응을 가져오는거
+              },
+              error: function () {
+                alert("error");
+              },
+            });
+            $("#chatbox")
+              .stop()
+              .animate({ scrollTop: $("#chatbox")[0].scrollHeight }, 2000);
+          }
+        });
+      });
+
+      let array = [];
+      let titles = [];
+      let titleleng;
+
+      // 챗봇의 채팅 반응
+      function respProc(str) {
+        let json = JSON.parse(str); // object Object 를 볼 수 있게 바꿔줌
+
+        if (json.bubbles[0].type === "text") {
+          // 챗봇채팅은 오른쪽에 추가됨
+          $("#chatbox").append(
+            "<div align='right'><div class='botmsg'>" +
+              json.bubbles[0].data.description +
+              "</div></div><br>"
+          );
+
+          console.log($("#chatbox"));
+        } else {
+          console.log(json.bubbles[0].data.cover.type); // image, text(link)
+
+          // 이미지타입일 경우
+          if (json.bubbles[0].data.cover.type == "image") {
+            let title = json.bubbles[0].data.cover.title;
+            let imageUrl = json.bubbles[0].data.cover.data.imageUrl;
+            let imgTag =
+              "<img src='" + imageUrl + "' width='200' class='img1'/>";
+
+            $("#chatbox").append(
+              "<div align='right'><div class='botmsg'>" +
+                title +
+                "<br>" +
+                imgTag +
+                "</div></div><br>"
+            );
+          } else {
+            // text -> a tag
+
+            let description = json.bubbles[0].data.cover.data.description;
+
+            for (var i = 0; i < json.bubbles[0].data.contentTable.length; i++) {
+              titleleng = json.bubbles[0].data.contentTable.length;
+
+              array = json.bubbles[0].data.contentTable[i][0].data.title;
+
+              let title = json.bubbles[0].data.contentTable[i][0].data.title;
+
+              titles.push(title);
+            }
+
+            //메시지는 하나 버튼은 다 가지고 오기
+            $("#chatbox").append(
+              "<div align='right'><div class='botmsg'>" +
+                description +
+                "<br></div></div><br>"
+            );
+
+            for (var j = 0; j < titleleng; j++) {
+              $("#chatbox").append(
+                "<div align='right'><div class='botmsg'><input type='button' id='" +
+                  j +
+                  "' name='choice[" +
+                  j +
+                  "]' onclick='btn(this.id);'  value='" +
+                  titles[j] +
+                  "'>" +
+                  "</div></div>"
+              );
+            }
+          }
+          /* let url = json.bubbles[0].data.contentTable[0][0].data.data.action.data.url; */
+          //alert(JSON.stringify(url));
+
+          /* let aTag = "<a href='" + url + "' target='_blank'>" + title + "</a>"; */
+        }
+      }
+
+      // 버튼 눌렀을때 그 버튼의 value값을 추출  -> user쪽 화면에 뿌려주고 -> 그에 반응하는 AJAX가져오기
+
+      function btn(clicked_id) {
+        $("#chatbox")
+          .stop()
+          .animate({ scrollTop: $("#chatbox")[0].scrollHeight }, 2000);
+
+        // 글 추가 하는 부분
+        $("#chatbox").append(
+          "<div class='usermsg'>" + titles[clicked_id] + "</div><br>"
+        );
+
+        // naver 전송
+        $.ajax({
+          url: "http://localhost:3000/chatbot",
+          type: "post",
+          data: { msg: titles[clicked_id] }, // 유저메시지를 챗봇 주소에 보내기
+          success: function (str) {
+            console.log(str);
+            respProc(str); // 유저메시지에 따라 생긴 반응을 가져오는거
+          },
+          error: function () {
+            alert("error");
+          },
+        });
+        //AJAX 다음에 발동
+        $("#chatbox")
+          .stop()
+          .animate({ scrollTop: $("#chatbox")[0].scrollHeight }, 2000);
+      }
+    </script>
+  </body>
+</html>

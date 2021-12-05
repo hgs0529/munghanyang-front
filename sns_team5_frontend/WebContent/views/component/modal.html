@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/mvp.css">
+<style type="text/css">
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  
+  /* 숨기기 */
+  z-index: -1;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  z-index: 1000;
+  transition: all .5s;
+}
+
+.window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
+  border-radius:5px;
+    display: flex;
+  flex-direction: column;
+  
+  /* 임시 지정 */
+  width: 60%;
+  height: 650px;
+  
+  transform: translate(-50%, -50%);
+}
+
+.show .popup {
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+
+}
+
+button{
+	width: 80px;
+	height: 40px;
+	font-size: 12px;
+	margin: 8px;
+	padding: 0;
+	float: right;
+	background-color: black;
+	border-color: black;
+}
+
+.popup-container{
+	display: flex;
+	width:100%;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+}
+.popup-main{
+	display: flex;
+	width:100%;
+	height:100%;
+	align-items: flex-start;
+	justify-content: space-around;
+}
+.popup-input{
+	display: flex;
+	flex-direction: column;
+}
+.necessary:after{
+	content:" *";
+    color: red;
+}
+.popup-input input{
+	margin: 3px;
+}
+.popup-write{
+	display: flex;
+}
+.popup-write label{
+	margin-right: 10px;
+}
+.select{
+	margin-right: 15px;
+}
+</style>
+
+</head>
+<body>
+
+<button id="show">팝업열기</button>
+
+<div class="background">
+  <div class="window">
+    <div class="popup">
+    	<div class="popup-container">
+	    	<div>
+	    		<h2 style="margin-left: 20px;">내 애완동물 등록</h2>
+	    	</div>
+	    </div>
+	    <form id="form_all">	
+	    <div class="popup-main">
+	    	<div>
+	    		<input type="file" id="uploadFile" name="uploadFile" accept="*">
+	    		<div class="thumbnail">
+	    			<img id="thumbnail_img">
+	    		</div>
+	    	</div>
+	    	<div id="thumb"></div>
+	    	<div class="popup-input">
+		    	<div class="popup-write">		
+		    		<label for="name" class="necessary">이름</label>
+		    		<input type="text" id="name" name="name">
+		    	</div>
+		       	<div class="popup-write">
+		    		<label for="" class="necessary">품종</label>
+		    		<input type="text" id="breed" name="breed">
+		    	</div>
+		       	<div class="popup-write">
+		    		<label for="name" class="necessary">성별</label>
+		    		<input type="radio" id="gender" name="gender" value="수컷"> 수컷
+		    		<input type="radio" id="gender" name="gender" value="암컷"> 암컷
+		    	</div>
+		       	<div class="popup-write">
+		    		<label for="name" class="necessary">생일</label><br>
+		    		<div class="select">
+		    		<select id="year">
+		    			<option selected="selected">년도</option>
+		    			<option value="2021">2021</option>
+		    			<option value="2020">2020</option>
+		    			<option value="2019">2019</option>
+		    			<option value="2018">2018</option>
+		    			<option value="2017">2017</option>
+		    			<option value="2016">2016</option>
+		    			<option value="2015">2015</option>
+		    			<option value="2014">2014</option>
+		    			<option value="2013">2013</option>
+		    			<option value="2012">2012</option>
+		    			<option value="2011">2011</option>
+		    			<option value="2010">2010</option>
+		    			<option value="2009">2009</option>
+		    			<option value="2008">2008</option>
+		    			<option value="2007">2007</option>
+		    			<option value="2006">2006</option>
+		    			<option value="2005">2005</option>
+		    			<option value="2004">2004</option>
+		    			<option value="2003">2003</option>
+		    			<option value="2002">2002</option>
+		    			<option value="2001">2001</option>
+		    			<option value="2000">2000</option>
+		    		</select>
+		    		</div>
+		    		<div class="select">
+		    		<select id="month" onchange="monthChange()">
+		    			<option selected="selected">월</option>
+		    			<option value="1">1</option>
+		    			<option value="2">2</option>
+		    			<option value="3">3</option>
+		    			<option value="4">4</option>
+		    			<option value="5">5</option>
+		    			<option value="6">6</option>
+		    			<option value="7">7</option>
+		    			<option value="8">8</option>
+		    			<option value="9">9</option>
+		    			<option value="10">10</option>
+		    			<option value="11">11</option>
+		    			<option value="12">12</option>
+		    		</select>
+		    		</div class="select">
+		    		<div>
+		    			<select id="day">
+		    				<option>일</option>
+		    			</select>
+		    		</div>
+		    	</div>
+		       	<div class="popup-content">
+		    		<label for="name" style="margin-bottom: 15px;">특이사항</label>
+		    		<textarea rows="10px" cols="55px" placeholder="특징을 입력해 주세요"></textarea>
+		    	</div>
+		    	<div class="btnbtn">
+		    	    <button id="btn_write" >등록하기</button>
+    				<button id="close">팝업닫기</button>
+		    	</div>
+	    	</div>
+	    </div>    
+    	</form>	
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+/* 모달창 */
+function show () {
+	document.querySelector(".background").className = "background show";
+}
+
+function close () { 
+	document.querySelector(".background").className = "background";
+}
+
+document.querySelector("#show").addEventListener('click', show);
+document.querySelector("#close").addEventListener('click', close);
+
+/* 썸네일 */
+document.getElementById("uploadFile").onchange = function () {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+    document.getElementById("thumbnail_img").src = e.target.result;
+    document.getElementById("thumbnail_img").setAttribute('wibth','350px');
+    document.getElementById("thumbnail_img").setAttribute('height','300px');
+    };
+    reader.readAsDataURL(this.files[0]);
+};
+
+
+/* select 일수 불러오기 */
+function monthChange(){
+	let year = $("#year").val();
+	let month = $("#month").val();
+	
+	let day= new Date(year,month,0).getDate();
+//	console.log(day);
+	for(x=1; x<=day; x++){
+		let str = "<option value="+ x + ">" + x + "</option>";
+		$("#day").append(str);
+	}
+}
+
+
+
+$("#btn_write").click(function(e){
+	e.preventDefault();
+	let formData = new FormData($("#form_all")[0]);
+	let result="";
+	let year=$("#year").val();
+	let month=$("#month").val();
+	let day=$("#day").val();
+	result += year;
+	result += "-";
+	result += month;
+	result += "-";
+	result += day;
+//	let radioval = $('input[name="gender"]:checked').val();
+//	console.log(radioval);
+	formData.append('birth',result);
+	formData.append('userid',1); // * 받는 값으로 수정해야함
+	console.log(formData.get('uploadFile'));
+	
+	$.ajax({
+		url:"http://localhost:3000/profile/addanimal",
+		type:"post",
+		data:formData,
+		enctype: "multipart/form-data",
+		processData:false,
+		contentType:false,
+		cash:false,
+		success:function(msg){
+			alert('success');
+			
+		},
+		error:function(){
+			alert('error');
+		}
+	});
+});
+	
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+#editFrm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#editFrm div:not(#thumbnail-photo) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#thumbnail-photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#editFrm p {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#editFrm div label {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+#editFrm div label.invalid {
+  color: red;
+}
+
+.editFrm-title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+#editFrm input {
+  border-radius: 10px;
+  width: 400px;
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+#editFrm input.invalid {
+  border-color: red;
+}
+
+#editFrm button {
+  font-weight: 600;
+  font-size: 18px;
+  height: 50px;
+  width: 400px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#editbtn {
+  margin-top: 50px;
+  background-color: #1f3e84;
+  /* color: #fcce00; */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#edit-btns #deletebtn {
+  width: 100%;
+  display: flex;
+  font-size: 14px;
+  justify-content: flex-end;
+  margin-top: 30px;
+  /* color: #fcce00; */
+  color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+#edit-email #email-input {
+  background-color: rgba(0, 0, 0, 0.05);
+}

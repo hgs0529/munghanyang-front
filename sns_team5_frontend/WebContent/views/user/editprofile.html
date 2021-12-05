@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>munghanyang - join</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../resource/css/style.css" />
+    <script src="../../resource/js/component/refreshUserInfo.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="content-container">
+      <h2 class="page-title">회원정보수정</h2>
+      <form id="editFrm">
+        <div id="edit-email">
+          <label for="email-input" id="emailLabel">이메일</label>
+          <input
+            type="email"
+            id="email-input"
+            size="20"
+            readonly
+          />
+        <div id="edit-nickname">
+          <label for="nickname-input" id="nickLabel">닉네임</label>
+          <input
+            type="text"
+            id="nickname-input"
+            placeholder="닉네임을 입력해주세요." 
+            size="20"
+            name="nickname"
+          />
+          <p id="nicknamecheck_p"></p>
+        </div>
+        <div>
+          <label for="thumbnail-input">프로필사진</label>
+            <input
+              type="file"
+              id="thumbnail-input"
+              name="uploadFile"
+              accept="image/*"
+            />
+            <div id="thumbnail-photo">
+            </div>
+        </div>
+        <div id="edit-btns">
+          <button type="button" id="editbtn">정보수정</button>
+          <a type="button" id="deletebtn">회원탈퇴&rarr;</a>
+        </div>
+      </form>
+    </div>
+    <script src="../../resource/js/component/addTags.js"></script>
+    <script src="../../resource/js/component/addComponent.js"></script>
+    <script src="../../resource/js/screen/editprofile.js"></script>
+  </body>
+</html>
