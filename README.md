@@ -90,24 +90,3 @@
 
 
 
-
-
-## Maintain
-
-not yet
-
-
-
-
-
-## License
-
-not yet
-
-
-
-
-
-## 프로젝트 후기
-
-not yet
